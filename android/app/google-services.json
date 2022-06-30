@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "913936210266",
+    "project_id": "pizza-opole",
+    "storage_bucket": "pizza-opole.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:913936210266:android:77ee81fe5dea255108fb63",
+        "android_client_info": {
+          "package_name": "com.wiktoriaholm.pizza_opole"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "913936210266-5nfjpp5guqbouvfn0a0tgr8qg4reg6qo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDmqfHxaa_IJGcG1fBNO8TdTdEjrtfh-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "913936210266-5nfjpp5guqbouvfn0a0tgr8qg4reg6qo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
