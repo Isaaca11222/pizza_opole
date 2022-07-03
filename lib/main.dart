@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'app/home/home_page.dart';
+import 'app/login/login_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -40,19 +42,9 @@ class RootPage extends StatelessWidget {
           final user = snapshot.data;
 
           if (user == null) {
-            return const Scaffold(
-              backgroundColor: Color.fromARGB(255, 204, 221, 230),
-              body: Center(
-                child: Text('Jesteś niezalogowany'),
-              ),
-            );
+            return LoginPage();
           }
-          return Scaffold(
-            backgroundColor: const Color.fromARGB(255, 193, 243, 208),
-            body: Center(
-              child: Text('Jesteś zalogowany jako ${user.email}'),
-            ),
-          );
+          return HomePage(user: user);
         });
   }
 }
