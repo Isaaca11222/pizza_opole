@@ -15,6 +15,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   var errorMessage = '';
+  var isCreatingAccount = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,9 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Zaloguj się"),
+              Text(isCreatingAccount == true
+                  ? 'Zarejestruj się'
+                  : "Zaloguj się"),
               TextField(
                 controller: widget.emailController,
                 decoration: const InputDecoration(hintText: "Email"),
@@ -52,8 +56,31 @@ class _LoginPageState extends State<LoginPage> {
                     print(error);
                   }
                 },
-                child: const Text('Zaloguj się'),
-              )
+                child: Text(isCreatingAccount == true
+                    ? 'Zarejestruj się '
+                    : 'Zaloguj się'),
+              ),
+              const SizedBox(height: 20),
+              if (isCreatingAccount == false) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isCreatingAccount = true;
+                    });
+                  },
+                  child: Text('Utwórz konto'),
+                ),
+              ],
+              if (isCreatingAccount == true) ...[
+                TextButton(
+                  onPressed: () {
+                    setState(() {
+                      isCreatingAccount = false;
+                    });
+                  },
+                  child: Text('Masz już konto?'),
+                ),
+              ],
             ],
           ),
         ),
