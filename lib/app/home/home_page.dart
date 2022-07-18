@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pizza_opole/app/home/add_opinion/add_opinion_page_content.dart';
+import 'package:pizza_opole/app/home/my_account/my_account_page_content.dart';
+import 'package:pizza_opole/app/home/restaurants/restaurant_page_content.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -21,36 +24,18 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(184, 1, 29, 5),
-        title: const Text("Pizza"),
+        title: const Text("Nalepsza Pizza"),
       ),
-      backgroundColor: const Color.fromARGB(255, 181, 214, 186),
+      backgroundColor: const Color.fromARGB(255, 172, 184, 164),
       body: Builder(builder: (context) {
         if (currentIndex == 0) {
-          return const Center(
-            child: Text('Jeden'),
-          );
+          return const RestaurantsPageContent();
         }
         if (currentIndex == 1) {
-          return const Center(
-            child: Text('Dwa'),
-          );
+          return const AddOpinionPageContent();
         }
 
-        return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Jesteś zalogowany jako ${widget.user.email}'),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  FirebaseAuth.instance.signOut();
-                },
-                child: const Text("Wyloguj"),
-              )
-            ],
-          ),
-        );
+        return MyAccountPageContent(email: widget.user.email);
       }),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
